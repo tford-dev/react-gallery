@@ -1,22 +1,21 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+  NavLink,
+  BrowserRouter as Router
 } from "react-router-dom";
 
-const Nav = () =>{
+const Nav = (props) =>{
+    const calling = props.funcCall;
     return(
-    <Router>
-        <nav className="main-nav">
-            <ul>
-                <li><Link to="/cats" >Cats</Link></li>
-                <li><Link to="/dogs">Dog</Link></li>
-                <li><Link to="/computers">Computers</Link></li>
-            </ul>
-        </nav>
-    </Router>
+        <Router>
+            <nav className="main-nav">
+                <ul>
+                    <li onClick={calling}><NavLink to="/street-bmx">BMX</NavLink></li>
+                    <li onClick={calling}><NavLink to="/dogs">Dogs</NavLink></li>
+                    <li onClick={calling}><NavLink to="/computers">Computers</NavLink></li>
+                </ul>
+            </nav>
+        </Router>
     )
 }
 
