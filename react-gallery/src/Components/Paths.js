@@ -11,7 +11,7 @@ const Paths = () =>{
             <Route path="/search/:id" component={App} />
             <Route path="/street-bmx" component={App} />
             <Route path="/dogs" component={App} />
-            <Route path="/computers" component={App} />
+            <Route path="/legos" component={App} />
             <Route path="/error" component={App} />
             <Redirect from="*" to="/error" />
         </Switch>

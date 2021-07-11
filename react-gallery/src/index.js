@@ -4,6 +4,7 @@ import './index.css';
 import Paths from "./Components/Paths";
 import reportWebVitals from './reportWebVitals';
 
+//I chose the paths component to render as it holds the routes for each component of this project
 ReactDOM.render(
   <React.StrictMode>
     <Paths />

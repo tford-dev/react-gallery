@@ -6,6 +6,7 @@ const Search = (props) => {
     const ref = useRef();
     const handleSubmit = (e) => {
         e.preventDefault();
+        //history.push(...) adds the search term to url which is then used as the search term in performSearch from App.js
         history.push(`/search/${ref.current.value}`)
         props.onSearch(ref.current.value);
         ref.current.value = "";
@@ -13,6 +14,7 @@ const Search = (props) => {
 
     return(
         <div>
+            {/*handleSumbit is called after form is submitted which then calls performSearch in App.js*/}
             <form className="search-form" onSubmit={handleSubmit} >
                 <input type="text" name="search" placeholder="Search" ref={ref} required />
                     <button type="submit" className="search-button">

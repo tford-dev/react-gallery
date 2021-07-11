@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router
 } from "react-router-dom";
 
+//I added an even listener to each <li></li> element so an assigned function can be called when clicked
 const Nav = (props) =>{
     const calling = props.funcCall;
     return(
@@ -12,7 +13,7 @@ const Nav = (props) =>{
                 <ul>
                     <li onClick={calling}><NavLink to="/street-bmx">BMX</NavLink></li>
                     <li onClick={calling}><NavLink to="/dogs">Dogs</NavLink></li>
-                    <li onClick={calling}><NavLink to="/computers">Computers</NavLink></li>
+                    <li onClick={calling}><NavLink to="/legos">Legos</NavLink></li>
                 </ul>
             </nav>
         </Router>
