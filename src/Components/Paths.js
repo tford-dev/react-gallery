@@ -7,7 +7,7 @@ const Paths = () =>{
     return(
     <Router>
         <Switch>
-            <Route exact path="/" component={App} />
+            <Route exact path="/react-gallery" component={App} />
             <Route path="/search/:id" component={App} />
             <Route path="/street-bmx" component={App} />
             <Route path="/dogs" component={App} />

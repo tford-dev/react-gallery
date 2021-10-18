@@ -21,18 +21,11 @@ class App extends Component {
 
   //The performSearch method of the component uses parts of the url at the top of the browser for searching
   performSearch = () =>{
-    const url = window.location.pathname;
     let query;
-    //I used index slicing to use parts of the url for searching
-    if(url.length > 1){
-      if(url.indexOf("/search/") !== -1){
-        query = url.slice(8, url.length);
-      } else {
-        query = url.slice(1, url.length);
-      }
+    if(window.location.pathname === "/react-gallery"){
+      query = "amg"
     } else {
-      //query is assigned a default term for when the page first loads
-      query="amg"
+      query = this.props.match.params.id;
     }
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=16&page=1&format=json&nojsoncallback=1`)
     .then((response)=>{
@@ -49,7 +42,7 @@ class App extends Component {
 
   //componentDidMount is used to call performSearch for when the app is first loaded
   componentDidMount(){
-  this.performSearch();
+    this.performSearch();
   }
 
   render(){
@@ -57,6 +50,8 @@ class App extends Component {
     window.onpopstate = (e) => {
       window.location.reload();
     };
+
+    const queryString = this.props.match.params.id;
     
     return (
       <div className="container">
@@ -70,7 +65,7 @@ class App extends Component {
           (window.location.pathname !== "/error")
             ? (this.state.isLoading)
                 ? <h3>Loading...</h3>
-                :  <PhotoContainer data={this.state.picsData} />
+                :  <PhotoContainer data={this.state.picsData} searchString={queryString}/>
             //If data cannot be retrieved, then the Error component will be rendered
             : <Error />
         }
