@@ -1,11 +1,11 @@
 import React from 'react'
-import {HashRouter, Route, Switch, Redirect} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 //App components
 import App from "../App";
 
 const Paths = () =>{
     return(
-    <HashRouter basename="/react-gallery">
+    <Router basename="/react-gallery">
         <Switch>
             <Route exact path="/" component={App} />
             <Route path="/search/:id" component={App} />
@@ -15,7 +15,7 @@ const Paths = () =>{
             <Route path="/error" component={App} />
             <Redirect from="*" to="/error" />
         </Switch>
-    </HashRouter>
+    </Router>
     )
 };
 
