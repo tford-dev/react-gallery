@@ -5,7 +5,7 @@ import App from "../App";
 
 const Paths = () =>{
     return(
-    <Router>
+    <HashRouter basename="/react-gallery">
         <Switch>
             <Route exact path="/" component={App} />
             <Route path="/search/:id" component={App} />
@@ -15,7 +15,7 @@ const Paths = () =>{
             <Route path="/error" component={App} />
             <Redirect from="*" to="/error" />
         </Switch>
-    </Router>
+    </HashRouter>
     )
 };
 
